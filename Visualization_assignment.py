@@ -26,8 +26,6 @@ print(inflation_df)
 sorted_inflation_df = inflation_df.sort_values(by=["2021"], ascending=False)
 
 # Define a function to generate a visualization graph using the specified parameters
-
-
 def visualize_data(x_values, y_values, x_label, y_label, title, kind, legend=None):
     """
     Plot a visualization graph using the specified parameters.
@@ -69,7 +67,6 @@ def visualize_data(x_values, y_values, x_label, y_label, title, kind, legend=Non
         # Display the plot
         plt.show()
 
-
 # Call the visualize_data function to plot a multiple line graph of the top 5 countries with highest inflation rates
 visualize_data(
     x_values=sorted_inflation_df["Country Name"].head(5),
@@ -83,8 +80,7 @@ visualize_data(
 )
 
 # Second Visualization with unemployment
-
-
+# Define a function to generate second visualization graph using the specified parameters
 def plot_unemployment(country, years, unemployment_percentage):
     """
     Plot a bar chart of the unemployment_percentage in total labour force for a given country over the years.
@@ -128,7 +124,6 @@ def plot_unemployment(country, years, unemployment_percentage):
     # Show the plot
     plt.show()
 
-
 # Filter the DataFrame to keep rows where the "Country Name" column is equal to "India"
 India_df = unemployment_df[unemployment_df["Country Name"] == "India"]
 
@@ -140,7 +135,7 @@ unemployment_percentage = India_df[years].values[0]
 plot_unemployment('India', years, unemployment_percentage)
 
 # third visualisation
-
+# Define a function to generate third visualization graph using the specified parameters
 def plot_top_n_countries_by_mean_lfp(labour_force_df, top_n):
     """
     Plot a pie chart of the top n countries by mean labour force participation rate.
