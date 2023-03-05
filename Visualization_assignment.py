@@ -25,7 +25,7 @@ print(inflation_df)
 sorted_inflation_df = inflation_df.sort_values(by="2021", ascending=False)
 
 # Define a function to generate a visualization graph using the specified parameters
-def visualize_data(x_values, y_values, x_label, y_label, title, kind, legend=None):
+def visualize_data(x_values, y_values, x_label, y_label, title,legend=None):
     """
     Plot a visualization graph using the specified parameters.
 
@@ -41,24 +41,23 @@ def visualize_data(x_values, y_values, x_label, y_label, title, kind, legend=Non
     Returns:
     None
     """
-    if kind == "multiple_line":
-        # Create a figure and axis object
-        fig, ax = plt.subplots()
+    # Create a figure and axis object
+    fig, ax = plt.subplots()
 
-        # Plot each line with a linewidth of 2
-        for y, label in zip(y_values, legend):
-            ax.plot(x_values, y, label=label, linewidth=3)
+    # Plot each line with a linewidth of 2
+    for y, label in zip(y_values, legend):
+        ax.plot(x_values, y, label=label, linewidth=3)
 
-        # Add a legend and labels
-        ax.legend()
-        ax.set_xlabel(x_label)
-        ax.set_ylabel(y_label)
-        ax.set_title(title, fontweight="bold")
+    # Add a legend and labels
+    ax.legend()
+    ax.set_xlabel(x_label)
+    ax.set_ylabel(y_label)
+    ax.set_title(title, fontweight="bold")
 
-        # Display the plot
-        plt.show()
+    # Display the plot
+    plt.show()
 
-
+         
 # Call the visualize_data function to plot a multiple line graph of the top 5 countries with highest inflation rates
 visualize_data(
     x_values=sorted_inflation_df["Country Name"].head(5),
@@ -66,7 +65,6 @@ visualize_data(
     x_label="Country Name",
     y_label="Inflation Rate",
     title="Top 5 Countries with Highest Inflation Rates (2019-2021)",
-    kind="multiple_line",
     legend=["2021", "2020", "2019"]
 )
 
